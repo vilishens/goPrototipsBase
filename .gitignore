@@ -1,6 +1,7 @@
 go/pkg/
 go/bin/
 cfg/factory/passes.leveldb/
+go/
 go/.vscode
 go/src/github.com/
 go/src/golang.org/
