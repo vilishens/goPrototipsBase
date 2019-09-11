@@ -1,0 +1,34 @@
+#!/bin/bash
+
+BACK_DIR=$1
+GO_DL=$2
+GO_DIR=$3
+
+GO_LANG_F="go-dl.tar.gz"
+
+# get and install go language
+
+#create the language directory if it doesn't exist 
+if [ ! -d $GO_DIR ]; then
+  mkdir -p $GO_DIR
+fi
+
+# remove all content of the directory
+rm -rf $GO_DIR/* 
+
+cd $GO_DIR
+
+# dowload golang and save in the archive file
+curl $GO_DL > $GO_DIR/$GO_LANG_F
+
+# unarchive the file
+tar xzf $GO_DIR/$GO_LANG_F
+
+# remove the golang archive file
+rm $GO_DIR/$GO_LANG_F
+
+cd $BACK_DIR
+
+exit 7
+
+

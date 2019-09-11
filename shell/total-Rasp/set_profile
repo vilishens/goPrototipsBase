@@ -1,0 +1,68 @@
+#!/bin/bash
+
+BACK_DIR=$1
+GO_ROOT=$2
+GO_PATH=$3
+SENDGRID_KEY=$4
+
+echo ' '
+echo 'export GOROOT='$GO_ROOT >> $HOME/.profile
+echo 'export GOPATH='$GO_PATH >> $HOME/.profile
+echo 'export PATH=$PATH:$GOROOT'/bin >> $HOME/.profile
+echo 'export SENDGRID_API_KEY='$SENDGRID_KEY >> $HOME/.profile
+
+# return to the start directory
+cd $BACK_DIR
+
+exit 12
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+GO_DL="https://dl.google.com/go/go1.12.9.linux-amd64.tar.gz"
+GO_DIR="/home/vilis/biba/go"
+GO_LANG_GZ="go-dl.tar.gz"
+GO_ROOT=$GO_LANG
+
+GO_DEV_BASE="/home/vilis/0_Dev/"
+GO_DEV_DIR="likurgs"
+GIT_URL="git@bitbucket.org:vilishens/next.git"
+
+
+SENDGRID_KEY="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"
+
+CURR_DIR=$(pwd)
+
+./get_golang $CURR_DIR $GO_DL $GO_DIR
+./get_source $CURR_DIR $GO_DEV_BASE $GO_DEV_DIR $GIT_URL 
+
+
+
+#source $HOME/.profile
+
+#./go_code
+
+echo ""
+echo ""
+echo "**********************************************************"
+echo "Please add the configuration file and restart Raspberry Pi"
+
+exit 7
+

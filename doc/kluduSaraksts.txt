@@ -1,0 +1,8 @@
+2019.08.06
+    Jāuztaisa tā, ka, ja Base len == 0, tad jāgaida beigšanas signāls, nevis jāiet laukā
+
+2019.08.06
+    Solī jauztaisa RootDone gaidīšana, lai varētu pārtraukt aplikācija, kad visi soļi vēl nav sākti.
+
+2019.08.06
+    Neizdodas pārtraukt darbību ar vomni.RootDone allsteps pakā. Kāpēc?

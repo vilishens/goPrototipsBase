@@ -1,0 +1,98 @@
+#!/bin/bash
+
+echo "Vajag salabot PointCmdBite (tas par lielu priekš RASPBERIJA)"
+
+
+
+# golang itself
+GO_DL_PC="https://dl.google.com/go/go1.12.9.linux-amd64.tar.gz"
+GO_DL_RASP="https://dl.google.com/go/go1.12.9.linux-armv6l.tar.gz"
+GO_DL=$GO_DL_RASP
+GO_DIR=$HOME/Tools/dev
+GO_LANG_GZ="go-dl.tar.gz"
+
+# application code
+GO_DEV_BASE=$HOME/0_Dev/
+GO_DEV_DIR="goArduino"
+GIT_URL_BITBUCKET="git@bitbucket.org:vilishens/next.git"
+GIT_URL_GITHUB="https://github.com/vilishens/goPrototips.git"
+GIT_URL=$GIT_URL_GITHUB
+
+# environment settings
+GO_ROOT=$GO_DIR/go
+GO_PATH=$GO_DEV_BASE$GO_DEV_DIR/go
+SENDGRID_KEY="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"
+
+# temporary environment settings
+GO_PATH_TMP=$HOME/0_Dev/Kasatons
+
+CURR_DIR=$(pwd)
+
+echo '### GET golang'
+./get_golang $CURR_DIR $GO_DL $GO_DIR
+echo '### GET app code'
+./get_source $CURR_DIR $GO_DEV_BASE $GO_DEV_DIR $GIT_URL 
+
+echo '### SET environment'
+export GOROOT=$GO_ROOT
+export GOPATH=$GO_PATH
+export PATH=$PATH:$GO_ROOT/bin
+export SENDGRID_API_KEY=$SENDGRID_KEY
+
+echo '### SET temporary GOLANG environment for golang packages'
+export GOPATH=$GO_PATH_TMP
+#create the additonal package directory if it doesn't exist 
+#if [ ! -d $GO_PATH_TMP ]; then
+#  mkdir -p $GO_PATH_TMP
+#fi
+
+echo '### GET additional golang packages'
+#./get_go_packages
+
+echo '### COPY additinal packages to the permanent golang directory'
+#cp -r $GO_PATH_TMP/bin/* $GO_DIR/go/bin
+# remove directory with the packages as all packages moved to golang directory
+#rm -rf $GO_PATH_TMP
+
+echo '### SET back the permanent GOPATH'
+export GOPATH=$GO_PATH
+
+echo '### GET dns utils and nmap'
+sudo apt-get install dnsutils
+sudo apt install nmap
+
+echo '### PREPARE application'
+./prepare_app $CURR_DIR $GO_PATH
+
+echo '### PREPARE .profile'
+./set_profile $CURR_DIR $GO_ROOT $GO_PATH $SENDGRID_KEY
+
+echo '### COPY boot start script'
+cp startboot $HOME/bin
+
+echo '### SET cron'
+
+
+
+
+source $HOME/.profile
+
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo "**********************************************************"
+echo "Please"
+echo "i)   add the configuration file;"
+echo "ii)  set cron"
+echo "			sudo crontab -e"
+echo "                  @reboot (sleep 30 ; su - pi -c 'sh /home/pi/bin/startboot')"
+echo "iii) restart Raspberry Pi"
+echo ""
+echo ""
+echo ""
+
+exit 7
+

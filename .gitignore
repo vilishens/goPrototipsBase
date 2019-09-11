@@ -1,0 +1,10 @@
+go/pkg/
+go/bin/
+cfg/factory/passes.leveldb/
+go/.vscode
+go/src/github.com/
+go/src/golang.org/
+go/src/gopkg.in/
+log/
+cfgrun/
+

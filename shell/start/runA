@@ -1,0 +1,76 @@
+#!/bin/bash 
+D_T_FORMAT="%Y-%m-%d_%H-%M-%S TZ%:z"                      # datuma un laika formāts
+NOW_DATE_TIME=$(date +"$D_T_FORMAT")
+echo "*** $NOW_DATE_TIME -> before delay" > /home/pi/0_Dev/fin/go/run.start.info
+
+sleep 120	# wait 2 minutes
+
+NOW_DATE_TIME=$(date +"$D_T_FORMAT")
+echo "*** $NOW_DATE_TIME -> after delay" >> /home/pi/0_Dev/fin/go/run.start.info
+
+GO_ARDUINO_PATH="/home/pi/0_Dev/fin/go"
+#GO_ARDUINO_CMD="go run -v goArduino.go"
+#GO_ARDUINO_CMD="sudo ./goArduino > /home/pi/0_Dev/fin/go/runLog.log &"
+GO_ARDUINO_CMD="sudo ./goArduino &"
+CD_RESTART=8 # paredzētais
+#CD_RESTART=8
+
+CD=$CD_RESTART
+
+CURRENT_PATH=$(pwd)
+
+cd $GO_ARDUINO_PATH
+
+echo $GO_ARDUINO_CMD
+
+LOG_FILE="home/pi/0_Dev/fin/go/goResults"
+
+echo "Before start" > $LOG_FILE 
+
+while [  $CD -eq $CD_RESTART ]; do
+    echo '#####'	
+    echo The BEFORE CD is $CD
+    echo The BEFORE CD is $CD >> $LOG_FILE
+    echo '#####'
+    echo
+
+    $GO_ARDUINO_CMD
+
+    CD=$?		
+
+    echo
+    echo '#####'
+    echo The AFTER  CD is $CD
+    echo The AFTER  CD is $CD >> $LOG_FILE
+    echo '#####'
+    echo
+
+    echo
+    echo
+    echo
+    echo
+    echo
+    echo
+    echo
+    echo
+    echo
+    echo
+    echo
+    echo
+
+
+done
+
+cd $CURRENT_PATH
+
+echo
+echo '*****'
+echo goArduino.go finished
+echo goArduino.go finished $CD >> $LOG_FILE 
+echo '*****'
+echo
+
+NOW_DATE_TIME=$(date +"$D_T_FORMAT")
+echo "*** $NOW_DATE_TIME -> quit" >> /home/pi/0_Dev/fin/go/run.start.info
+
+exit 0

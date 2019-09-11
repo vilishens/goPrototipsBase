@@ -1,0 +1,4 @@
+https://mindmup.github.io/editable-table/ 	// editable-table with MindMup
+https://github.com/mindmup/bootstrap-wysiwyg	// WEB editor with MindMup
+
+https://codepen.io/svnt/pen/beEgre		// multi level menu

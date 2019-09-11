@@ -1,0 +1,20 @@
+#!/bin/bash
+
+BACK_DIR=$1
+SRC_BASE=$2
+SRC_DIR=$3
+GIT_URL=$4
+
+# remove all content of the base directory, it it exists 
+if [ -d $SRC_BASE ]; then
+  rm -rf $SRC_BASE
+fi
+
+#create the source (base) directory
+mkdir -p $SRC_BASE
+cd $SRC_BASE
+
+git clone $GIT_URL $SRC_DIR
+
+exit 5
+

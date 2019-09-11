@@ -1,0 +1,3 @@
+2019/04/06 Log failu piederība root:root
+
+Ja parādās jauns punkts, tad punkta log katalogu izveido ar piederību root:root un Raspberijs nespēj izveidot punkta log failu 
