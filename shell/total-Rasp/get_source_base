@@ -6,8 +6,8 @@ SRC_DIR=$3
 GIT_URL=$4
 
 # remove all content of the base directory, it it exists 
-if [ -d $SRC_BASE ]; then
-  rm -rf $SRC_BASE
+if [ -d $SRC_BASE/$SRC_DIR ]; then
+  rm -rf $SRC_BASE/$SRC_DIR
 fi
 
 #create the source (base) directory
