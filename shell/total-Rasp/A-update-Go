@@ -1,0 +1,14 @@
+#!/bin/bash
+
+CURR_DIR=$(pwd)
+
+set-start-variables
+
+echo '### GET app GO code'
+./get_source_go $CURR_DIR $GO_DEV_BASE/$GO_DEV_DIR $GO_DEV_GO_DIR  $GIT_URL_GO 
+
+echo '### PREPARE application'
+./prepare_app $CURR_DIR $GO_PATH
+
+exit 7
+
