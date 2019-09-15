@@ -1,5 +1,7 @@
 #!/bin/bash
 
+BACK_DIR=$1
+
 CURR_DIR=$(pwd)
 
 set-start-variables
@@ -10,5 +12,7 @@ echo '### GET app GO code'
 echo '### PREPARE application'
 ./prepare_app $CURR_DIR $GO_PATH
 
-exit 7
+cd $BACK_DIR
+
+exit 0
 
