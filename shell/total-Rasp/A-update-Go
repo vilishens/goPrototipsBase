@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BACK_DIR=$1
+RET_DIR=$1
 
 CURR_DIR=$(pwd)
 
@@ -18,7 +18,7 @@ echo '### GET GO code update'
 echo '### PREPARE application'
 ./prepare_app $CURR_DIR $GO_PATH
 
-cd $BACK_DIR
+cd $RET_DIR
 
 exit 0
 
