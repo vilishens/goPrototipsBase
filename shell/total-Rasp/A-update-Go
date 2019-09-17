@@ -12,8 +12,8 @@ GIT_URL_GITHUB_GO="https://github.com/vilishens/goPrototipsGo.git"
 GIT_URL_GO=$GIT_URL_GITHUB_GO
 GO_PATH=$GO_DEV_BASE$GO_DEV_DIR/$GO_DEV_GO_DIR
 
-echo '### GET app GO code'
-./get_source_go $CURR_DIR $GO_DEV_BASE/$GO_DEV_DIR $GO_DEV_GO_DIR  $GIT_URL_GO 
+echo '### GET GO code update'
+./get_update_go $CURR_DIR $GO_DEV_BASE/$GO_DEV_DIR $GO_DEV_GO_DIR  $GIT_URL_GO 
 
 echo '### PREPARE application'
 ./prepare_app $CURR_DIR $GO_PATH

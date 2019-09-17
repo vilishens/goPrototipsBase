@@ -1,0 +1,15 @@
+#!/bin/bash
+
+BACK_DIR=$1
+SRC_BASE=$2
+SRC_DIR=$3
+GIT_URL=$4
+
+cd $SRC_BASE/$SRC_DIR
+
+git pull
+
+cd $BACK_DIR
+
+exit 5
+
