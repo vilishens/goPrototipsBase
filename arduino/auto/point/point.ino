@@ -8,11 +8,18 @@
 #include <WiFiUdp.h>
 
 //***** Settings - UDP connection - START
-#define POINT_NAME                      "divi"          // the board name of the link
+#define POINT_NAME                      "WEMOS-zils"            // the board name of the link
+#define STATION_NAME                    "ASHKENAZI"             // the station/hub (currently Raspberry Pi) name    
+#define WIFI_HOTSPOT_NAME               "BMSG3"                 // the WiFi hotspot (the Internet access point) name
+#define WIFI_HOTSPOT_PASS               "barinu57STREET"        // the WiFi hotspot password
+
 //#define STATION_NAME                    "raspisMelns" // the name of the supervisor station
-#define STATION_NAME                    "RASPIS-MANS"   // the name of the supervisor station
-#define WIFI_HOTSPOT_NAME               "bazargans"     // the WiFi hotspot name
-#define WIFI_HOTSPOT_PASS               "Mi0dirg8ss"    // the WiFi hotspot password
+//#define STATION_NAME                    "RASB2"         // the name of the supervisor station
+//#define STATION_NAME                    "RASPIS-MANS"         // the name of the supervisor station
+//#define WIFI_HOTSPOT_NAME               "bazargans"         // the WiFi hotspot name
+//#define WIFI_HOTSPOT_PASS               "Mi0dirg8ss"// the WiFi hotspot password
+// T #define WIFI_HOTSPOT_NAME               "BMSG3"         // the WiFi hotspot name
+// T #define WIFI_HOTSPOT_PASS               "barinu57STREET"// the WiFi hotspot password
 //#define WIFI_HOTSPOT_NAME               "BMSG2"         // the WiFi hotspot name
 //#define WIFI_HOTSPOT_PASS               "barinu7755"    // the WiFi hotspot password
 #define UDP_PORT                        49750           // the predifined UDP port of the link
